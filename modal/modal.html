@@ -1,0 +1,45 @@
+
+
+<div id="addModal" class="modal">
+	<div class='modal-Main'>
+		<div class="modal-Title">
+			<h2>New Story...</h2>
+		</div>
+		<div class="error-Container">
+			<h3 class="error-Text">
+			</h3>
+		</div>
+		<div class="modal-Input">
+			<input id="summaryInput" type="text" class="modal-Text-Input" placeholder="Summary"/>
+		</div>
+		<div class="modal-Input">
+			<textarea id="detailsInput" class="modal-TextArea" rows="5" placeholder="Details"></textarea>
+		</div>
+		<div class="modal-Input">
+			<select id="addProjectInput" class="modal-Text-Input">
+				<option value="" disabled selected>Select a project</option>
+				<option>Temp</option>
+				<option>Temp</option>
+			</select>
+		</div>
+		<div class="modal-Input-Half">
+			<input id="estimateInput" type="number" class="modal-Text-Input" placeholder="Time Estimate"/>
+		</div>
+		<div class="modal-Input-Half">
+			<input id="pointsInput" type="number" class="modal-Text-Input" placeholder="Story Points"/>
+		</div>
+		<div class="modal-Input-Check">
+			<input type="button" name='type' onclick="onCheckClick(this)" class="modal-Text-Check" id="designCheck" 	value="Design"></input>
+			<input type="button" name='type' onclick="onCheckClick(this)" class="modal-Text-Check" id="featureCheck" value="Feature"></input>
+			<input type="button" name='type' onclick="onCheckClick(this)" class="modal-Text-Check" id="bugCheck" 	value="Bug"></input>
+		</div>
+	</div>
+	<div class="modal-Controls">
+		<div class="modal-Left-Button" onclick="onCreateClick()">
+			Create
+		</div>
+		<div class="modal-Right-Button" onclick="hideModal()">
+			Cancel
+		</div>
+	</div>
+</div>

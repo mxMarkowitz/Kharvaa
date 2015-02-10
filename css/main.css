@@ -1,0 +1,97 @@
+/*
+	blue : ;
+
+*/
+html{
+	display: block;
+	font-family: 'Roboto', sans-serif;
+}
+body{
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	background: rgb(232, 232, 232);
+}
+.controls-Container{
+	width: 100%;
+	height: 50px;
+	background: white;
+}
+.headerBack {
+	position: absolute;
+	width: 100%;
+	height: 50px;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+	background: #03A9F4;
+}
+.project-Name{
+	float: left;
+	height: 30px;
+	padding: 10px;
+	color: #03A9F4;
+	font-size: 24px;
+	font-weight: 300;
+	line-height: 40px;
+}
+.controls-Btn{
+	-webkit-appearance: none;
+	border: none;
+	background: white;
+	float: left;
+	height: 50px;
+	width: 50px;
+	padding: 10px;
+	font-family: Helvetica, arial, sans-serif;
+	color: #03A9F4;
+	font-size: 24px;
+	cursor: pointer;
+}
+.login-Btn{
+	width: auto;
+	font-weight: 300;
+	font-size: 15px;
+	float: right;
+	padding-bottom: 0;
+}
+.text-btn{
+	width: auto;
+	font-weight: 300;
+	font-size: 15px;
+	float: right;
+	padding-bottom: 0;
+}
+
+.controls-Btn:active{
+	color: #01579B;
+	outline: none;
+}
+.controls-Btn:focus{
+	outline: none;
+}
+.main-Area{
+	width: 100%;
+	float: left;
+	height: 100%;
+}
+*::-webkit-input-placeholder { font-weight: 100; }
+*::-moz-placeholder { font-weight: 100; } /* firefox 19+ */
+*:-ms-input-placeholder { font-weight: 100; } /* ie */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  	-webkit-appearance: none;
+  	margin: 0;
+}
+.ui-state-active{
+	outline: 2px dashed #3498db;
+}
+#notLoggedInMessage{
+	position: absolute;
+	margin: 0;
+	top: 200px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	color: #03A9F4;
+	display: none;
+}

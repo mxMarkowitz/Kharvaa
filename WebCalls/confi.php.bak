@@ -1,0 +1,5 @@
+<?php
+$conn = mysql_connect("localhost", "borectha_wp209", "myrtis11690") or die("Error connecting to database test");
+mysql_select_db('borectha_agile_rest', $conn);
+
+$serverName = 'borectha_agile_rest';

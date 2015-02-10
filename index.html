@@ -1,0 +1,225 @@
+<html>
+<head>
+	<!--<link href='http://fonts.googleapis.com/css?family=Roboto:500,100,300,700,400' rel='stylesheet' type='text/css'>--> 
+	<link href="css/main.css"  rel="stylesheet" type="text/css">
+	<link href="css/modal.css" rel="stylesheet" type="text/css">
+	<link href="css/story.css" rel="stylesheet" type="text/css">
+	<link href="css/projects.css" rel="stylesheet" type="text/css">
+	<link href="css/idea.css" rel="stylesheet" type="text/css">
+	<style>
+	</style>
+</head>
+<body>
+	<div class="controls-Container">
+		<div id='StoryName' class="project-Name">Kharvaa</div>
+		<input id='controlsLoginBtn'    class="controls-Btn login-btn" type="button" value="Login"    ></input>
+		<input id='controlsOptionsBtn'  class="controls-Btn text-btn"  type='button' value="Options"  ></input>
+		<input id='controlsExpandBtn'   class="controls-Btn text-btn"  type='button' value="Collapse"   ></input>
+		<input id='controlsProjectsBtn' class="controls-Btn text-btn"  type='button' value="Projects" ></input>
+		<input id='controlsAddBtn' 	    class="controls-Btn	text-btn"  type='button' value="+ Story"  ></input>
+	</div>
+	<div id="notLoggedInMessage"> You need to be logged in to use this </div>
+	<div class="main-Area">
+		<div class="headerBack"></div> 
+		<div class="story-Col" id="todoCol">
+			<div class="story-Col-Header">
+				<h2>To Do</h2>
+			</div>
+			<div class="story-Col-Body" id="todoBody">
+			</div>
+		</div>
+		<div class="story-Col" id="inProgressCol">
+			<div class="story-Col-Header">
+				<h2>In Progress</h2>
+			</div>
+			<div class="story-Col-Body" id="inProgressBody">
+			</div>
+		</div>
+		<div class="story-Col" id="testingCol">
+			<div class="story-Col-Header">
+				<h2>Testing</h2>
+			</div>
+			<div class="story-Col-Body" id="testingBody">
+			</div>
+		</div>
+		<div class="story-Col" id="doneCol">
+			<div class="story-Col-Header">
+				<h2>Done</h2>
+			</div>
+			<div class="story-Col-Body" id="doneBody">
+			</div>
+		</div>
+	</div>
+	<div class="projects-Section" style="display: none;">
+		<div class="headerBack"></div>
+		<div class="projects-Head">
+			<h2>Projects</h2>
+		</div>
+		<div class="projects-Body">
+			<div class="projects-Body-Interior">
+			</div>
+		</div>
+	</div>
+	<div class="modal-Overlay"></div>
+	<div id="addModal" class="modal">
+		<div class='modal-Main'>
+			<div class="modal-Title">
+				<h2>New Story...</h2>
+			</div>
+			<div class="error-Container">
+				<h3 class="error-Text">
+    			</h3>
+    		</div>
+			<div class="modal-Input">
+				<input id="summaryInput" type="text" class="modal-Text-Input" placeholder="Summary"/>
+			</div>
+			<div class="modal-Input">
+				<textarea id="detailsInput" class="modal-TextArea" rows="5" placeholder="Details"></textarea>
+			</div>
+			<div class="modal-Input">
+				<select id="addProjectInput" class="modal-Text-Input">
+					<option value="" disabled selected>Select a project</option>
+					<option>Temp</option>
+					<option>Temp</option>
+				</select>
+			</div>
+			<div class="modal-Input-Half">
+				<input id="estimateInput" type="number" class="modal-Text-Input" placeholder="Time Estimate"/>
+			</div>
+			<div class="modal-Input-Half">
+				<input id="pointsInput" type="number" class="modal-Text-Input" placeholder="Story Points"/>
+			</div>
+			<div class="modal-Input-Check">
+				<input type="button" name='type' onclick="onCheckClick(this)" class="modal-Text-Check" id="designCheck" 	value="Design"></input>
+				<input type="button" name='type' onclick="onCheckClick(this)" class="modal-Text-Check" id="featureCheck" value="Feature"></input>
+				<input type="button" name='type' onclick="onCheckClick(this)" class="modal-Text-Check" id="bugCheck" 	value="Bug"></input>
+			</div>
+		</div>
+		<div class="modal-Controls">
+			<div class="modal-Left-Button" onclick="onCreateClick()">
+				Create
+			</div>
+			<div class="modal-Right-Button" onclick="hideModal()">
+				Cancel
+			</div>
+		</div>
+	</div>
+	<div id="editModal" class="modal">
+		<div class="modal-Main">
+			<div class="modal-Title">
+				<h2>Edit Story...</h2>
+			</div>
+			<div class="modal-Input">
+				<input id="summaryEditInput" type="text" class="modal-Text-Input" placeholder="Summary"/>
+			</div>
+			<div class="modal-Input">
+				<textarea id="detailsEditInput" class="modal-TextArea" rows="5" placeholder="Details"></textarea>
+			</div>
+			<div class="modal-Input-Half">
+				<input id="estimateEditInput" type="number" class="modal-Text-Input" placeholder="Time Estimate"/>
+			</div>
+			<div class="modal-Input-Half">
+				<input id="pointsEditInput" type="number" class="modal-Text-Input" placeholder="Story Points"/>
+			</div>
+			<div class="modal-Input-Check">
+				<input type="button" name='type' onclick="onCheckClick(this)" class="modal-Text-Check" id="designEditCheck"  value="Design"></input>
+				<input type="button" name='type' onclick="onCheckClick(this)" class="modal-Text-Check" id="featureEditCheck" value="Feature"></input>
+				<input type="button" name='type' onclick="onCheckClick(this)" class="modal-Text-Check" id="bugEditCheck" 	 value="Bug"></input>
+			</div>
+		</div>
+		<div class="modal-Controls">
+			<div class="modal-Left-Button" onclick="onEditSaveClick()">
+				Save
+			</div>
+			<div class="modal-Right-Button" onclick="hideModal()">
+				Cancel
+			</div>
+		</div>
+	</div>
+	<div id="deleteModal" class="modal">
+		<div class='modal-Main'>
+			<div class="modal-Title delete-Title">
+				<h2>Delete Story?</h2>
+			</div>
+		</div>
+		<div class="modal-Controls">
+			<div class="modal-Left-Button" onclick="deleteModalConfirm()">
+				Delete
+			</div>
+			<div class="modal-Right-Button" onclick="hideModal()">
+				Cancel
+			</div>
+		</div>
+	</div>
+	<div id="loginModal" class="modal">
+		<div class='modal-Main'>
+			<div class="modal-Title delete-Title">
+				<h2>Please Login</h2>
+				<h4>There was an issue logging in</h4>
+			</div>
+			<div class="modal-Input">
+				<input id="usernameInput" type="text" class="modal-Text-Input" placeholder="Username"/>
+			</div>
+			<div class="modal-Input">
+				<input id="passwordInput" type="password" class="modal-Text-Input" placeholder="Password"/>
+			</div>
+		</div>
+		<div class="modal-Controls">
+			<div id="loginModalLoginBtn" class="modal-Left-Button">
+				Login
+			</div>
+			<div class="modal-Right-Button" onclick="hideModal()">
+				Cancel
+			</div>
+		</div>
+	</div>
+	<div id="optionsModal" class="modal">
+		<div class="modal-Main">
+			<div class="modal-Title">
+				<h2>Options</h2>
+			</div>
+		</div>
+	</div>
+	<div id="projectsModal" class="modal">
+		<div class='modal-Main'>
+			<div class="modal-Title">
+				<h2>New Project...</h2>
+			</div>
+			<div class="error-Container">
+				<h3 class="error-Text">
+    			</h3>
+    		</div>
+    		<div class="modal-Input">
+				<input id="nameInput" type="text" class="modal-Text-Input" placeholder="Project Name"/>
+			</div>
+			<div class="modal-Input">
+				<textarea id="descriptionInput" class="modal-TextArea" rows="5" placeholder="Project Description"></textarea>
+			</div>
+		</div>
+		<div class="modal-Controls">
+			<div class="modal-Controls">
+			<div class="modal-Left-Button" onclick="addProject()">
+				Create
+			</div>
+			<div class="modal-Right-Button" onclick="hideModal()">
+				Cancel
+			</div>
+		</div>
+	</div>
+
+  	<!--<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>-->
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<!--<script>!window.jQuery && document.write(unescape('%3Cscript src="js/jquery-2.1.1.min.js"%3E%3C/script%3E'))</script>-->
+	<script src="js/jquery.cookie.js"></script>
+	<script src="js/store.min.js"></script>
+	<script src="js/modals.js"></script>
+	<script src="js/buttons.js"></script>
+	<script src="js/services.js"></script>
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>

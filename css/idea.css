@@ -1,0 +1,23 @@
+.spitball-header{
+	width: 100%;
+	height: 100px;
+	float: left;
+	line-height: 100px;
+	background: white;
+	text-align: center;
+}
+.spitball-body{
+	width: 100%;
+	height: 100%;
+	float: left;
+}
+
+.idea-create-btn{
+	width: 100px;
+	height: 100px;
+	background: #03A9F4;
+	color: white;
+	line-height: 100px;
+	text-align: center;
+	float: right;
+}

@@ -1,0 +1,64 @@
+--
+-- Database: `tuts_rest`
+--
+
+CREATE database IF NOT EXISTS `agile_simple`
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `status` text NOT NULL,
+
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `stories` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `summary` varchar(150) NOT NULL,
+  `description` varchar(500) NOT NULL,
+  `estimate` int,
+  `points` int(11),
+  `status` varchar(50),
+  `type` varchar(50),
+  `typecolor` varchar(20),
+  `owner` int(11) NOT NULL,
+  `project` int(11),
+  
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `userrequest` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(150) NOT NULL,
+
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `project` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) NOT NULL,
+  `description` varchar(500) NOT NULL,
+  `owner` int(11) NOT NULL,
+
+  FOREIGN KEY(owner) REFERENCES users(ID)
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  
+CREATE TABLE IF NOT EXISTS `tablecolumns` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) NOT NULL,
+  `order` int(11) NOT NULL
+
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+
