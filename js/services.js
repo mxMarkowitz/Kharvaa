@@ -1,3 +1,5 @@
+/* global $, console; */
+
 /*-- Web Service Methods --*/
 	function getStories(id, onSuccess){
 		$.ajax({

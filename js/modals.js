@@ -1,3 +1,5 @@
+/* global $, console; */
+
 /*-- Modal Methods --*/
 
 	/*-- Delete Modal Methods --*/
