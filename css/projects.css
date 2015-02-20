@@ -27,8 +27,9 @@
 .project{
 	background: white;
 	float: left;
-	height: 200px;
-	width: 200px;
+	min-height: 200px;
+	height: auto;
+	width: 300px;
 	margin-right: 20px;
 	margin-bottom: 20px;
 	box-shadow: 2px 2px 2px lightgray;

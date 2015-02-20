@@ -25,11 +25,35 @@
 	/*-- End Delete Modal Methods --*/
 
 	/*-- Project Modal Methods --*/
-		function addProject(){
-			var project = {
-				//'name': 
+		function createProject(){
+		}
+
+		var modal = function(elementId){
+			this.element = $(elementId);
+			this.cancelBtn = $( this.element.find('.cancel-btn') );
+			this.submitBtn = $( this.element.find('.create-btn') );
+
+			this.init = function(){
+				this.cancelBtn.on('click', function(){
+					hideModal();
+				});
+				this.submitBtn.on('click', function(){
+					console.log('submitting project');
+					var project = {
+						'name':  $('#projectNameInput').val(),
+						'description' : $('#projectDescriptionInput').val()
+					}
+					if (project.name.length > 0){
+						addProject(project, function(){
+							hideModal();
+						});
+					}
+				});
 			}
 		}
+		var projectModal = new modal('#projectsModal');
+			projectModal.init();
+
 	/*-- End Project Modal Methods --*/
 
 	/*-- Add Modal Methods -- */

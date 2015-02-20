@@ -77,7 +77,7 @@ var activeProject = null;
               accept: ".story",
               activeClass: "ui-state-hover",
               hoverClass: "ui-state-active",
-              drop: function( ui ) {
+              drop: function( event, ui ) {
                 var status = $(this).parent().attr('id'),
                     id = $(ui.draggable).find('.id').html().slice(1),
                     col = ui.draggable.parents('.ui-droppable');
@@ -163,7 +163,6 @@ var activeProject = null;
         clearMain();
         $('.main-area').append(columns);
     }
-
 /*-- End Story --*/
 
 /*-- Project --*/
@@ -222,6 +221,7 @@ var activeProject = null;
                             '</div>' +
                         '</div>';
         clearMain();
+        document.location.hash = '#projects';
         $('.project-Name').html( 'Kharvaa' );
         //$('.main-area').append(projects);
     
@@ -259,15 +259,19 @@ var activeProject = null;
 
     function hashCheck() {
         if ( document.location.hash !== '' ) {
-            getProjects( ID, function (data) {
-                var i, len;
-                for ( i = 0, len = data.stories.length; i < len; i++) {
-                    if (data.stories[i].hash === document.location.hash ) {
-                        getByProject( data.stories[i].ID, data.stories[i].name, data.stories[i].hash);
-                        break;
+            if (document.location.hash == '#projects'){
+                addProjectsArea();
+            } else {
+                getProjects( ID, function (data) {
+                    var i, len;
+                    for ( i = 0, len = data.stories.length; i < len; i++) {
+                        if (data.stories[i].hash === document.location.hash ) {
+                            getByProject( data.stories[i].ID, data.stories[i].name, data.stories[i].hash);
+                            break;
+                        }
                     }
-                }
-            });
+                });
+            }
             return true;
         }
         return false;

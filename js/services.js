@@ -3,7 +3,7 @@
 /*-- Web Service Methods --*/
 	function getStories(id, onSuccess){
 		$.ajax({
-			url: '/Agile/WebCalls/stories.php?id=' + id,
+			url: '/Kharvaa/WebCalls/stories.php?id=' + id,
 		  	success: function(data) {
 		  		console.log('Got All Stories');
 		  		//data = JSON.parse(data);
@@ -15,7 +15,7 @@
 	}
 	function getStoriesByProject(id, project, onSuccess){
 		$.ajax({
-			url: '/Agile/WebCalls/stories.php?id=' + id + '&project=' + project,
+			url: '/Kharvaa/WebCalls/stories.php?id=' + id + '&project=' + project,
 		  	success: function(data) {
 		  		console.log('Got All Stories');
 		  		//data = JSON.parse(data);
@@ -27,7 +27,7 @@
 	}
 	function getAllStories(onSuccess){
 		$.ajax({
-			url: '/Agile/WebCalls/getAllStories.php',
+			url: '/Kharvaa/WebCalls/getAllStories.php',
 		  	success: function(data) {
 		  		console.log('Got All Stories');
 		  		//data = JSON.parse(data);
@@ -37,7 +37,7 @@
 		});
 	}
 	function updateStatus(status, id){
-		var url = '/Agile/WebCalls/updateStatus.php';
+		var url = '/Kharvaa/WebCalls/updateStatus.php';
 		$.ajax({
 			type: 'PUT',
 			headers: {
@@ -55,14 +55,13 @@
 	function addStory(data, callback){
 		$.ajax({
 			type: "POST",
-			url: '/Agile/WebCalls/newStory.php',
+			url: '/Kharvaa/WebCalls/newStory.php',
 			data: data,
 			success: callback
 		});
 	}
 	function updateStory(data, callback){
-		var url = '/Agile/WebCalls/stories.php';
-		console.log('id = ' + data.id);
+		var url = '/Kharvaa/WebCalls/stories.php';
 		$.ajax({
 			type: "PUT",
 			url: url,
@@ -80,8 +79,7 @@
 		});
 	}
 	function deleteStory(id){
-		var url = '/Agile/WebCalls/stories.php?uid=' + id;
-		console.log('deleting');
+		var url = '/Kharvaa/WebCalls/stories.php?uid=' + id;
 		$.ajax({
 			type: 'DELETE',
 			url: url,
@@ -98,7 +96,7 @@
 	}
 	function getProjects(id, onSuccess){
 		$.ajax({
-			url: '/Agile/WebCalls/projects.php?uid=' + id,
+			url: '/Kharvaa/WebCalls/projects.php?uid=' + id,
 		  	success: function(data) {
 		  		console.log('Got All Stories');
 		  		//data = JSON.parse(data);
@@ -108,9 +106,21 @@
 		  	//TODO add error handling
 		});
 	}
+	function addProject(data, callback){
+		data.hash = '#' + data.name;
+		data.hash  = data.hash.replace(/\s/g, '');
+		data.owner = ID;
+		console.log(data);
+		$.ajax({
+			type: "POST",
+			url: '/Kharvaa/WebCalls/projects.php',
+			data: data,
+			success: callback
+		});
+	}
 
 	function login(username, password){
-		var url = '/Agile/WebCalls/users.php?username=' + username + '&password=' + password;
+		var url = '/Kharvaa/WebCalls/users.php?username=' + username + '&password=' + password;
 		console.log('login');
 		$.ajax({
 			type: 'GET',

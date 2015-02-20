@@ -30,12 +30,13 @@
 		$name = isset($_POST['name']) ? mysql_real_escape_string($_POST['name']) : "";
 		$description = isset($_POST['description']) ? mysql_real_escape_string($_POST['description']) : "";
 		$owner = isset($_POST['owner']) ? mysql_real_escape_string($_POST['owner']) : "";
+		$hash = isset($_POST['hash']) ? mysql_real_escape_string($_POST['hash']) : "";
 
-		$sql = "INSERT INTO `$serverName`.`project` (`ID`, `name`, `description`, `owner`) VALUES (NULL, '$name', '$description', '$owner')";
+		$sql = "INSERT INTO `$serverName`.`project` (`ID`, `name`, `description`, `owner`, `hash`) VALUES (NULL, '$name', '$description', '$owner', '$hash')";
 		//prepared statements
 		$qur = mysql_query($sql);
 		if($qur){
-			$json = array("status" => 1, "msg" => "Project Added!");
+			$json = array("status" => 1, "msg" => $hash);
 		}else{
 			$json = array("status" => 0, "msg" => "Error Project not added!");
 		}
