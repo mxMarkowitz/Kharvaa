@@ -23,7 +23,7 @@ Installation
 ------------
 Coming soon
 
-Licensting
+Licensing
 ----------
 Free as in beer
 
