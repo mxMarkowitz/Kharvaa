@@ -1,22 +1,22 @@
 <html>
 <head>
-	<!--<link href='http://fonts.googleapis.com/css?family=Roboto:500,100,300,700,400' rel='stylesheet' type='text/css'>--> 
 	<link href="css/main.css"  rel="stylesheet" type="text/css">
 	<link href="css/modal.css" rel="stylesheet" type="text/css">
 	<link href="css/story.css" rel="stylesheet" type="text/css">
 	<link href="css/projects.css" rel="stylesheet" type="text/css">
 	<link href="css/idea.css" rel="stylesheet" type="text/css">
-	<style>
-	</style>
 </head>
 <body>
 	<div class="controls-Container">
 		<div id='StoryName' class="project-Name">Kharvaa</div>
-		<input id='controlsLoginBtn'    class="controls-Btn login-btn" type="button" value="Login"    ></input>
-		<input id='controlsOptionsBtn'  class="controls-Btn text-btn"  type='button' value="Options"  ></input>
-		<input id='controlsExpandBtn'   class="controls-Btn text-btn"  type='button' value="Collapse"   ></input>
-		<input id='controlsProjectsBtn' class="controls-Btn text-btn"  type='button' value="Projects" ></input>
-		<input id='controlsAddBtn' 	    class="controls-Btn	text-btn"  type='button' value="+ Story"  ></input>
+		<input id='controlsLoginBtn'      class="controls-Btn login-btn"  type="button" value="Login"     ></input>
+		<input id='controlsOptionsBtn'    class="controls-Btn text-btn"   type='button' value="Options"   ></input>
+		<input id='controlsExpandBtn'     class="controls-Btn text-btn"   type='button' value="Collapse"  ></input>
+		<input id='controlsProjectsBtn'   class="controls-Btn text-btn"   type='button' value="Projects"  ></input>
+		<input id='controlsTaskBtn'   	  class="controls-Btn text-btn"   type='button' value="Tasks"     ></input>
+		<input id='controlsAddBtn' 	      class="controls-Btn text-btn"   type='button' value="+ Task"    ></input>
+		<input id='controlsAddProjectBtn' class="controls-Btn text-btn"   type='button' value="+ Project" ></input>
+		<input id='controlsMobileBtn'     class="controls-btn mobile-btn" type="button"></input>
 	</div>
 	<div id="notLoggedInMessage"> You need to be logged in to use this </div>
 	<div class="main-Area">
@@ -64,7 +64,7 @@
 	<div id="addModal" class="modal">
 		<div class='modal-Main'>
 			<div class="modal-Title">
-				<h2>New Story...</h2>
+				<h2>New Task...</h2>
 			</div>
 			<div class="error-Container">
 				<h3 class="error-Text">
@@ -87,7 +87,7 @@
 				<input id="estimateInput" type="number" class="modal-Text-Input" placeholder="Time Estimate"/>
 			</div>
 			<div class="modal-Input-Half">
-				<input id="pointsInput" type="number" class="modal-Text-Input" placeholder="Story Points"/>
+				<input id="pointsInput" type="number" class="modal-Text-Input" placeholder="Points"/>
 			</div>
 			<div class="modal-Input-Check">
 				<input type="button" name='type' onclick="onCheckClick(this)" class="modal-Text-Check" id="designCheck" 	value="Design"></input>
@@ -96,10 +96,10 @@
 			</div>
 		</div>
 		<div class="modal-Controls">
-			<div class="modal-Left-Button" onclick="onCreateClick()">
+			<div id="addTaskModalBtn" class="modal-Left-Button" onclick="onCreateClick()">
 				Create
 			</div>
-			<div class="modal-Right-Button" onclick="hideModal()">
+			<div class="modal-Right-Button">
 				Cancel
 			</div>
 		</div>
@@ -119,7 +119,7 @@
 				<input id="estimateEditInput" type="number" class="modal-Text-Input" placeholder="Time Estimate"/>
 			</div>
 			<div class="modal-Input-Half">
-				<input id="pointsEditInput" type="number" class="modal-Text-Input" placeholder="Story Points"/>
+				<input id="pointsEditInput" type="number" class="modal-Text-Input" placeholder="Points"/>
 			</div>
 			<div class="modal-Input-Check">
 				<input type="button" name='type' onclick="onCheckClick(this)" class="modal-Text-Check" id="designEditCheck"  value="Design"></input>
@@ -131,7 +131,7 @@
 			<div class="modal-Left-Button" onclick="onEditSaveClick()">
 				Save
 			</div>
-			<div class="modal-Right-Button" onclick="hideModal()">
+			<div class="modal-Right-Button">
 				Cancel
 			</div>
 		</div>
@@ -146,7 +146,7 @@
 			<div class="modal-Left-Button" onclick="deleteModalConfirm()">
 				Delete
 			</div>
-			<div class="modal-Right-Button" onclick="hideModal()">
+			<div class="modal-Right-Button">
 				Cancel
 			</div>
 		</div>
@@ -168,7 +168,7 @@
 			<div id="loginModalLoginBtn" class="modal-Left-Button">
 				Login
 			</div>
-			<div class="modal-Right-Button" onclick="hideModal()">
+			<div class="modal-Right-Button">
 				Cancel
 			</div>
 		</div>
@@ -207,8 +207,6 @@
 		</div>
 	</div>
 	<script src="js/libs/jquery-2.1.1.min.js"></script>
-	<script src="js/libs/jquery-ui.min.js"></script>
-	<!--<script>!window.jQuery && document.write(unescape('%3Cscript src="js/jquery-2.1.1.min.js"%3E%3C/script%3E'))</script>-->
 	<script src="js/libs/jquery.cookie.js"></script>
 	<script src="js/libs/store.min.js"></script>
 	<script src="js/modals.js"></script>

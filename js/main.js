@@ -17,6 +17,9 @@ var activeProject = null;
         $('.main-area').hide();
         $('#controlsAddBtn').hide();
         $('.projects-Section').show();
+        $('#controlsAddProjectBtn').show();
+        $('#controlsProjectsBtn').hide();
+        $('#controlsTaskBtn').show();
     }
     /* Shows main area 
      * @param 
@@ -26,6 +29,9 @@ var activeProject = null;
         $('.projects-Section').hide();
         $('#controlsAddBtn').show();
         $('.main-area').show();
+        $('#controlsAddProjectBtn').hide();
+        $('#controlsProjectsBtn').show();
+        $('#controlsTaskBtn').hide();
     }
 /*-- End Main area modification --*/
 
@@ -235,22 +241,9 @@ var activeProject = null;
             for ( i = 0, len = stories.length; i < len; i++ ){
                 $('.projects-Body-Interior').append(buildProjectElement(stories[i]));
             }
-            $('.projects-Body-Interior').append('<div id="allProjects">All</div>');
-            $('.projects-Body-Interior').append('<div id="addProjectButton">+</div>');
             $('.project').on('click', function(){
                 getByProject($(this).data('id'), $(this).data('name'), $(this).data('hash'));
             });
-            $('#allProjects').on('click', function(){
-                activeProject = null;
-                document.location.hash = '';
-                $('.project-Name').html( 'Kharvaa' );
-                getStories(ID, populate);
-                //convertToSpitBallView(e);
-            });
-            $('#addProjectButton').on('click', function(){
-                $('.modal-Overlay').show();
-                $('#projectsModal').fadeIn(200);
-            })
         });
     }
 /*-- End Project --*/
@@ -340,6 +333,16 @@ function init() {
             $('#notLoggedInMessage').fadeIn();
         }
     }
+    $('#controlsTaskBtn').on('click', function(){
+        activeProject = null;
+        document.location.hash = '';
+        $('.project-Name').html( 'Kharvaa' );
+        getStories(ID, populate);
+    })
+    $('#controlsAddProjectBtn').on('click', function(){
+        $('.modal-Overlay').show();
+        $('#projectsModal').fadeIn(200);
+    })
 }
 function convertToSpitBallView(e){
     var target = $(e.currentTarget);

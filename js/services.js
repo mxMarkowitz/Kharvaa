@@ -118,7 +118,6 @@
 			success: callback
 		});
 	}
-
 	function login(username, password){
 		var url = '/Kharvaa/WebCalls/users.php?username=' + username + '&password=' + password;
 		console.log('login');

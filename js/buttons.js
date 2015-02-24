@@ -8,6 +8,9 @@
 	$('#controlsProjectsBtn').on('click', function(e){
 		addProjectsArea();
 	});
+	$('.modal-Right-Button').on('click', function(){
+		hideModal();
+	});
 
 	$('#controlsProjectsBtn').on('click', function(e){
 		getProjects(ID, function(data){

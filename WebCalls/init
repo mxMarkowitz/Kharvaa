@@ -47,8 +47,8 @@ CREATE TABLE IF NOT EXISTS `project` (
   `name` varchar(150) NOT NULL,
   `description` varchar(500) NOT NULL,
   `owner` int(11) NOT NULL,
-
-  FOREIGN KEY(owner) REFERENCES users(ID)
+  `hash` varchar(150) NOT NULL,
+  
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
   

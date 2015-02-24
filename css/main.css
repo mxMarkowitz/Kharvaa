@@ -46,6 +46,23 @@ body{
 	font-size: 24px;
 	cursor: pointer;
 }
+.mobile-btn{
+	display: none;
+	width: auto;
+	font-weight: 300;
+	font-size: 15px;
+	float: right;
+	width: 50px;
+}
+
+@media(max-width: 480px) {
+	.controls-btn{
+		display: none !important;
+	}
+	.mobile-btn{
+		display: block !important;
+	}
+}
 .login-Btn{
 	width: auto;
 	font-weight: 300;
@@ -59,6 +76,10 @@ body{
 	font-size: 15px;
 	float: right;
 	padding-bottom: 0;
+	display: none;
+}
+#controlsAddProjectBtn{
+	display: none;
 }
 
 .controls-Btn:active{
